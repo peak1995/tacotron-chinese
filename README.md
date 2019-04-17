@@ -58,7 +58,7 @@ Pull requests are welcome!
    The following are supported out of the box:
     * [LJ Speech](https://keithito.com/LJ-Speech-Dataset/) (Public Domain)
     * [Blizzard 2012](http://www.cstr.ed.ac.uk/projects/blizzard/2012/phase_one) (Creative Commons Attribution Share-Alike)
-    * [Bznsyp](https://www.data-baker.com/open_source.html) 
+    * [Bznsyp](https://www.data-baker.com/open_source.html) (Chinese Corpus)
    
     You can use other datasets if you convert them to the right format. See [TRAINING_DATA.md](TRAINING_DATA.md) for more info.
 
@@ -86,12 +86,24 @@ Pull requests are welcome!
              |- lab
              |- wav
    ```
-
+   Chinese like Bznsyp:
+   ```
+      tacotron
+     |- Bznsyp
+         |- bz.txt(preprocess 000001-010000.txt)
+         |- PhoneLabeling
+         |   |- 000001.interval
+         |- prosodyLabeling
+             |- 000001-010000.txt
+         |- Wave
+             |- 000001.wav
+   ```
 3. **Preprocess the data**
    ```
-   python3 preprocess.py --dataset ljspeech
+   python3 preprocess.py --dataset bznsyp
    ```
      * Use `--dataset blizzard` for Blizzard data
+     * Use `--dataset ljspeech` for LJ Speech
 
 4. **Train a model**
    ```
@@ -99,7 +111,7 @@ Pull requests are welcome!
    ```
 
    Tunable hyperparameters are found in [hparams.py](hparams.py). You can adjust these at the command
-   line using the `--hparams` flag, for example `--hparams="batch_size=16,outputs_per_step=2"`.
+   line using the `--hparams` flag, for example `--hparams="batch_size=32,outputs_per_step=2"`.
    Hyperparameters should generally be set to the same values at both training and eval time.
    The default hyperparameters are recommended for LJ Speech and other English-language data.
    See [TRAINING_DATA.md](TRAINING_DATA.md) for other languages.
@@ -124,7 +136,16 @@ Pull requests are welcome!
    python3 eval.py --checkpoint ~/tacotron/logs-tacotron/model.ckpt-185000
    ```
    If you set the `--hparams` flag when training, set the same value here.
-
+  
+  or like:
+  
+   open terminal
+   ```
+   jupyter notebook
+   ```
+   open Synthesisend.ipynb
+   modify some path and parameter
+   
 
 ## Notes and Common Issues
 
