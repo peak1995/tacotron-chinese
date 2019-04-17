@@ -1,4 +1,4 @@
-# Tacotron
+# Tacotron-Chinese
 
 An implementation of Tacotron speech synthesis in TensorFlow.
 
