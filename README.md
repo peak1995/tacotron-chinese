@@ -2,9 +2,9 @@
 
 An implementation of Tacotron speech synthesis in TensorFlow.
 
-Thanks for Keith Ito
+Thanks for Keith It's code  and Data Baker company's Corpus
 
-I just made changes() on his basis code https://github.com/keithito/tacotron
+I just made changes(Corpus https://www.data-baker.com/open_source.html) on his basis code https://github.com/keithito/tacotron
 
 ## Background
 
@@ -32,7 +32,7 @@ Pull requests are welcome!
    pip install -r requirements.txt
    ```
 
-### Using a pre-trained model()
+### Using a pre-trained model(just English not Chinese)
 
 1. **Download and unpack a model**:
    ```
@@ -58,8 +58,9 @@ Pull requests are welcome!
    The following are supported out of the box:
     * [LJ Speech](https://keithito.com/LJ-Speech-Dataset/) (Public Domain)
     * [Blizzard 2012](http://www.cstr.ed.ac.uk/projects/blizzard/2012/phase_one) (Creative Commons Attribution Share-Alike)
-
-   You can use other datasets if you convert them to the right format. See [TRAINING_DATA.md](TRAINING_DATA.md) for more info.
+    * [Bznsyp](https://www.data-baker.com/open_source.html) 
+   
+    You can use other datasets if you convert them to the right format. See [TRAINING_DATA.md](TRAINING_DATA.md) for more info.
 
 
 2. **Unpack the dataset into `~/tacotron`**
