@@ -137,48 +137,14 @@ Pull requests are welcome!
    ```
    If you set the `--hparams` flag when training, set the same value here.
   
-  or like:
+     or like:
   
-   open terminal
-   ```
-   jupyter notebook
-   ```
-   open Synthesisend.ipynb
-   modify some path and parameter
-   
+     open terminal
+     ```
+     jupyter notebook
+      ```
+     open Synthesisend.ipynb
+     
+     modify some path and parameter
 
-## Notes and Common Issues
-
-  * [TCMalloc](http://goog-perftools.sourceforge.net/doc/tcmalloc.html) seems to improve
-    training speed and avoids occasional slowdowns seen with the default allocator. You
-    can enable it by installing it and setting `LD_PRELOAD=/usr/lib/libtcmalloc.so`. With TCMalloc,
-    you can get around 1.1 sec/step on a GTX 1080Ti.
-
-  * You can train with [CMUDict](http://www.speech.cs.cmu.edu/cgi-bin/cmudict) by downloading the
-    dictionary to ~/tacotron/training and then passing the flag `--hparams="use_cmudict=True"` to
-    train.py. This will allow you to pass ARPAbet phonemes enclosed in curly braces at eval
-    time to force a particular pronunciation, e.g. `Turn left on {HH AW1 S S T AH0 N} Street.`
-
-  * If you pass a Slack incoming webhook URL as the `--slack_url` flag to train.py, it will send
-    you progress updates every 1000 steps.
-
-  * Occasionally, you may see a spike in loss and the model will forget how to attend (the
-    alignments will no longer make sense). Although it will recover eventually, it may
-    save time to restart at a checkpoint prior to the spike by passing the
-    `--restore_step=150000` flag to train.py (replacing 150000 with a step number prior to the
-    spike). **Update**: a recent [fix](https://github.com/keithito/tacotron/pull/7) to gradient
-    clipping by @candlewill may have fixed this.
-    
-  * During eval and training, audio length is limited to `max_iters * outputs_per_step * frame_shift_ms`
-    milliseconds. With the defaults (max_iters=200, outputs_per_step=5, frame_shift_ms=12.5), this is
-    12.5 seconds.
-    
-    If your training examples are longer, you will see an error like this:
-    `Incompatible shapes: [32,1340,80] vs. [32,1000,80]`
-    
-    To fix this, you can set a larger value of `max_iters` by passing `--hparams="max_iters=300"` to
-    train.py (replace "300" with a value based on how long your audio is and the formula above).
-    
-  * Here is the expected loss curve when training on LJ Speech with the default hyperparameters:
-    ![Loss curve](https://user-images.githubusercontent.com/1945356/36077599-c0513e4a-0f21-11e8-8525-07347847720c.png)
-
+  
