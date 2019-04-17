@@ -2,21 +2,9 @@
 
 An implementation of Tacotron speech synthesis in TensorFlow.
 
+Thanks for Keith Ito
 
-### Audio Samples
-
-  * **[Audio Samples](https://keithito.github.io/audio-samples/)** from models trained using this repo.
-    * The first set was trained for 441K steps on the [LJ Speech Dataset](https://keithito.com/LJ-Speech-Dataset/)
-      * Speech started to become intelligble around 20K steps.
-    * The second set was trained by [@MXGray](https://github.com/MXGray) for 140K steps on the [Nancy Corpus](http://www.cstr.ed.ac.uk/projects/blizzard/2011/lessac_blizzard2011/).
-
-
-### Recent Updates
-
-1. @npuichigo [fixed](https://github.com/keithito/tacotron/pull/205) a bug where dropout was not being applied in the prenet.
-
-2. @begeekmyfriend created a [fork](https://github.com/begeekmyfriend/tacotron) that adds location-sensitive attention and the stop token from the [Tacotron 2](https://arxiv.org/abs/1712.05884) paper. This can greatly reduce the amount of data required to train a model.
-
+I just made changes() on his basis code https://github.com/keithito/tacotron
 
 ## Background
 
@@ -44,8 +32,7 @@ Pull requests are welcome!
    pip install -r requirements.txt
    ```
 
-
-### Using a pre-trained model
+### Using a pre-trained model()
 
 1. **Download and unpack a model**:
    ```
@@ -173,7 +160,3 @@ Pull requests are welcome!
   * Here is the expected loss curve when training on LJ Speech with the default hyperparameters:
     ![Loss curve](https://user-images.githubusercontent.com/1945356/36077599-c0513e4a-0f21-11e8-8525-07347847720c.png)
 
-
-## Other Implementations
-  * By Alex Barron: https://github.com/barronalex/Tacotron
-  * By Kyubyong Park: https://github.com/Kyubyong/tacotron
